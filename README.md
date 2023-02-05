@@ -6,6 +6,6 @@ Create a scene that aligns with the course project proposal. Note that at this s
 
 The scene must contain.
 - [ ] Dynamic game objects (e.g., objects that move). 5 points
-- [ ] A playable main character. 5 points
+- [x] A playable main character. 5 points
 - [ ] An aesthetically pleasing scene. 5 points
 - [ ] A win/lose condition. 5 points
