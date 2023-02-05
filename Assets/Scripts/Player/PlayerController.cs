@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float jumpPower = 5f;
 
+    [Header("Shaders")]
+
+    [SerializeField]
+    Material[] LUTs;
+
     #endregion
 
     #region Variables
@@ -25,7 +30,7 @@ public class PlayerController : MonoBehaviour
     Transform cameraFollowTarget;
 
     PlayerInput playerInput;
-    InputAction movement, look, jump;
+    InputAction movement, look, jump, cameraShaderIn;
 
     Rigidbody body;
 
@@ -33,11 +38,17 @@ public class PlayerController : MonoBehaviour
 
     bool isGrounded;
 
+    CameraShaderScript cameraShaderScript;
+    int LUTIndex;
+
     #endregion
 
     private void Awake()
     {
         cameraFollowTarget = gameObject.transform.Find("Follow Target").transform;
+
+        cameraShaderScript = FindObjectOfType<CameraShaderScript>();
+        cameraShaderScript.SetShader(LUTs[LUTIndex]);
 
         playerInput = GetComponent<PlayerInput>();
         #region player input
@@ -45,6 +56,7 @@ public class PlayerController : MonoBehaviour
         movement = playerInput.actions["Movement"];
         look = playerInput.actions["Look"];
         jump = playerInput.actions["Jump"];
+        cameraShaderIn = playerInput.actions["CameraShader"];
 
         #endregion
 
@@ -57,6 +69,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         jump.started += ctx => Jump();
+        cameraShaderIn.started += ctx => CameraShader();
     }
 
     private void OnDisable()
@@ -95,6 +108,14 @@ public class PlayerController : MonoBehaviour
         
         body.AddForce(groundNormal * jumpPower, ForceMode.Impulse);
         isGrounded = false;
+    }
+
+    private void CameraShader() 
+    {
+        if (cameraShaderIn.ReadValue<float>() > 0) LUTIndex = (LUTIndex + 1) % LUTs.Length;
+        else LUTIndex = (LUTIndex + LUTs.Length - 1) % LUTs.Length;
+
+        cameraShaderScript.SetShader(LUTs[LUTIndex]);
     }
 
     private void OnCollisionStay(Collision collision)

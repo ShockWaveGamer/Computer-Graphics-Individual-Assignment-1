@@ -10,4 +10,9 @@ public class CameraShaderScript : MonoBehaviour
     {
         Graphics.Blit(source, destination, m_renderMaterial);
     }
+
+    public void SetShader(Material mat)
+    {
+        m_renderMaterial = mat;
+    }
 }

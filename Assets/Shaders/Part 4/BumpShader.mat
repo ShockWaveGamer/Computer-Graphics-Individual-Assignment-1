@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LookUpTableCorrectionWarm
-  m_Shader: {fileID: 4800000, guid: ed0a969101359f647bc6f8a51877f059, type: 3}
+  m_Name: BumpShader
+  m_Shader: {fileID: 4800000, guid: 20bf1a3ab3a0d6446934a6f6b5360810, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,16 +20,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _LUT:
-        m_Texture: {fileID: 2800000, guid: c445fbd5fb55f5e4e8f116094d2d5cd1, type: 3}
+    - _myBump:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
+    - _myDiffuse:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contribution: 1
+    - _mySlider: 1
     m_Colors: []
   m_BuildTextureStacks: []
