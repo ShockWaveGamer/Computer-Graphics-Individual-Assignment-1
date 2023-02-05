@@ -22,4 +22,12 @@ Show how each previous item affects the objects. For example, each item can be T
 
 ## Part 3 Color Grading
 
-- [ ] Add LUT Screen Effect
+- [x] Add LUT Screen Effect
+
+## Part 4 Additional Shaders
+
+- [x] Add two more shaders
+
+## Part 5 Video Report
+
+- [ ] Video Done
