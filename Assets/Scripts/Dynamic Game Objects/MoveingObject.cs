@@ -23,17 +23,19 @@ public class MoveingObject : MonoBehaviour
     #region Variables
 
     Vector3 startPos;
+    float timedOffset;
 
     #endregion
 
     private void Awake()
     {
         startPos = transform.position;
+        timedOffset = Random.Range(0f, 2f);
     }
 
     private void Update()
     {
-        float sin = Mathf.Sin(Time.time * speed);
+        float sin = Mathf.Sin(Time.time * speed / distance + timedOffset);
 
         switch (direction)
         {
