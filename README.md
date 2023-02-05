@@ -8,4 +8,4 @@ The scene must contain.
 - [x] Dynamic game objects (e.g., objects that move). 5 points
 - [x] A playable main character. 5 points
 - [x] An aesthetically pleasing scene. 5 points
-- [ ] A win/lose condition. 5 points
+- [x] A win/lose condition. 5 points
