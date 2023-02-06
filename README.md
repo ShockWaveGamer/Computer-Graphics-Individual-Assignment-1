@@ -29,7 +29,7 @@ Show how each previous item affects the objects. For example, each item can be T
 ## Part 4 Additional Shaders
 
 - [x] Bump Map
-- [x] Normal Extrusion [Sorce: Unity 3D Manual](https://docs.unity3d.com/Manual/SL-SurfaceShaderExamples.html)
+- [x] Normal Extrusion [Sources: Unity 3D Manual](https://docs.unity3d.com/Manual/SL-SurfaceShaderExamples.html)
 
 ## Part 5 Video Report
 
