@@ -1,5 +1,8 @@
 # Computer Graphics Individual Assignment 1
- 
+
+[Slides](https://docs.google.com/presentation/d/1hh8DZ3J5-IT3xPMxe73J_bxdNT8nESOvQCqBtRnlMVo/edit?usp=sharing)
+[Video]()
+
 ## Part 1 Base
 
 Create a scene that aligns with the course project proposal. Note that at this stage, this scene is low-fidelity. Because of this, team members cannot have the same scene.
@@ -29,4 +32,4 @@ Show how each previous item affects the objects. For example, each item can be T
 
 ## Part 5 Video Report
 
-- [ ] Video Done
+- [x] Video Done
