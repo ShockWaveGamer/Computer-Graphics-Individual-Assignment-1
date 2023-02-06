@@ -1,7 +1,8 @@
 # Computer Graphics Individual Assignment 1
 
 [Slides](https://docs.google.com/presentation/d/1hh8DZ3J5-IT3xPMxe73J_bxdNT8nESOvQCqBtRnlMVo/edit?usp=sharing)
-\n[Video](https://youtu.be/ehPfMNY0dBs)
+
+[Video](https://youtu.be/ehPfMNY0dBs)
 
 ## Part 1 Base
 
