@@ -17,9 +17,7 @@ Shader "Custom/ToonRamp"
         float4 LightingToonRamp(SurfaceOutput s, float3 lightDir, float atten) 
         {
             float diff = dot(s.Normal, lightDir);
-            float h = diff * 0.5 + 0.5;
-            float2 rh = h;
-            float3 ramp = tex2D(_RampTex, rh).rgb;
+            float3 ramp = tex2D(_RampTex, diff * 0.5 + 0.5).rgb;
 
             float4 c;
             c.rgb = s.Albedo * _LightColor0.rgb * ramp;
