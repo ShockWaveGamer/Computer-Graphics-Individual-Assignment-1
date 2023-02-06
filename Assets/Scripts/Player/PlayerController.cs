@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Material[] LUTs;
 
+    [SerializeField]
+    Material[] Mats;
+
     #endregion
 
     #region Variables
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
     Transform cameraFollowTarget;
 
     PlayerInput playerInput;
-    InputAction movement, look, jump, cameraShaderIn;
+    InputAction movement, look, jump, cameraShaderIn, playerShaderIn;
 
     Rigidbody body;
 
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
     CameraShaderScript cameraShaderScript;
     int LUTIndex;
 
+    int matsIndex;
+
     #endregion
 
     private void Awake()
@@ -48,7 +53,8 @@ public class PlayerController : MonoBehaviour
         cameraFollowTarget = gameObject.transform.Find("Follow Target").transform;
 
         cameraShaderScript = FindObjectOfType<CameraShaderScript>();
-        cameraShaderScript.SetShader(LUTs[LUTIndex]);
+        cameraShaderScript.SetShader(LUTs[LUTIndex]);    
+        GetComponent<Renderer>().material = Mats[matsIndex];
 
         playerInput = GetComponent<PlayerInput>();
         #region player input
@@ -57,6 +63,7 @@ public class PlayerController : MonoBehaviour
         look = playerInput.actions["Look"];
         jump = playerInput.actions["Jump"];
         cameraShaderIn = playerInput.actions["CameraShader"];
+        playerShaderIn = playerInput.actions["PlayerShader"];
 
         #endregion
 
@@ -70,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
         jump.started += ctx => Jump();
         cameraShaderIn.started += ctx => CameraShader();
+        playerShaderIn.started += ctx => PlayerShader();
     }
 
     private void OnDisable()
@@ -105,17 +113,24 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         if (!isGrounded) return;
-        
+        else isGrounded = false;
         body.AddForce(groundNormal * jumpPower, ForceMode.Impulse);
-        isGrounded = false;
     }
 
     private void CameraShader() 
     {
-        if (cameraShaderIn.ReadValue<float>() > 0) LUTIndex = (LUTIndex + 1) % LUTs.Length;
-        else LUTIndex = (LUTIndex + LUTs.Length - 1) % LUTs.Length;
+        if (cameraShaderIn.ReadValue<float>() > 0) LUTIndex = (LUTIndex - 1) % LUTs.Length;
+        else LUTIndex = (LUTIndex + LUTs.Length + 1) % LUTs.Length;
 
         cameraShaderScript.SetShader(LUTs[LUTIndex]);
+    }
+
+    private void PlayerShader()
+    {
+        if (playerShaderIn.ReadValue<float>() > 0) matsIndex = (matsIndex + 1) % Mats.Length;
+        else matsIndex = (matsIndex + Mats.Length - 1) % Mats.Length;
+
+        GetComponent<Renderer>().material = Mats[matsIndex];
     }
 
     private void OnCollisionStay(Collision collision)

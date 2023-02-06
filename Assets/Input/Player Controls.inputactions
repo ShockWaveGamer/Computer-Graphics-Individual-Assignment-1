@@ -40,6 +40,15 @@
                     "processors": "Normalize(min=1,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PlayerShader",
+                    "type": "Value",
+                    "id": "8c4ae605-c55c-4236-8e47-19336370a983",
+                    "expectedControlType": "Axis",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -150,6 +159,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraShader",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "70f16d88-b8b5-4736-9d06-ce03bf638b44",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerShader",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d3745ff5-acc8-45cd-8820-ee5ea2c03c15",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerShader",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "3786d471-aade-417c-baec-be9c81c307da",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerShader",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
