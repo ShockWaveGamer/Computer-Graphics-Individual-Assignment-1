@@ -7,7 +7,7 @@ Shader "Custom/BumpShader"
     _mySlider("Bump Amount", Range(0,10)) = 1
     }
 
-        SubShader
+    SubShader
     {
         CGPROGRAM
 
@@ -32,5 +32,5 @@ Shader "Custom/BumpShader"
 
         ENDCG
     }
-        Fallback "Diffuse"
+Fallback "Diffuse"
 }

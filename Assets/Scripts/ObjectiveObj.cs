@@ -27,7 +27,6 @@ public class ObjectiveObj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hi");
         if (other.CompareTag("Player"))
         {
             FindObjectOfType<GameManager>().RemoveObjective(this);
